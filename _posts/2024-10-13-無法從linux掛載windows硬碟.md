@@ -22,15 +22,17 @@ wrong fs type, bad option, bad superblock on /dev/sdb1, missing codepage or help
 <br>
 1. 首先先用`lsblk`查看硬碟。
 2. 如果看得道那顆硬碟，用`fdisk -l`看看系統有沒有辦法用他。
-3.再來輸入`fsck /dev/sda1`修理損壞的區域（/dev/sda1改成你自己的硬碟）
+3. 再來輸入`fsck /dev/sda1`修理損壞的區域（/dev/sda1改成你自己的硬碟）
 有些人到這邊就結束了，很可惜不是我:( 我在第三步遇到問題，之後又去查了其他方法。<br>
-<br>
+
 <br>
 於是我來到了reddit的[這篇文章](https://www.reddit.com/r/archlinux/comments/17yc6yw/cant_mount_windows_partition)，裡面的回答帶著我到了[archlinux的維基](https://wiki.archlinuxcn.org/wiki/NTFS#%E6%97%A0%E6%B3%95%E7%94%A8_ntfs3_%E6%8C%82%E8%BD%BD%E8%A2%AB%E6%A0%87%E8%AE%B0%E4%B8%BA%E8%84%8F%E7%9A%84%E5%88%86%E5%8C%BA)<br>
 請讓我直接把維基頁面截過來這邊吧。<br>
 ![](assets/img/image/無法從linux掛載windows硬碟/2.png)<br>
-使用`dmesg`會幫你判斷這個情況，好巧不巧他回得真的跟上面說得一模一樣耶。
-```sdb1: volume is dirty and "force" flag is not set!```
+使用`dmesg`會幫你判斷這個情況，好巧不巧他回得真的跟上面說得一模一樣耶。<br>
+```
+sdb1: volume is dirty and "force" flag is not set!
+```
 然後就用了[`ntfsfix`](https://man.archlinux.org/man/ntfsfix.8)的`--clear-dirty`。<br>
 使用方式是`ntfsfix /dev/sda1 --clear-dirty`（/dev/sda1改成你自己的硬碟，請參考以下圖片）<br>
 ![](assets/img/image/無法從linux掛載windows硬碟/1.png)<br>
