@@ -14,7 +14,7 @@ description: 我的linux又有問題了，是啊，到底是為什麼呢
 ```
 wrong fs type, bad option, bad superblock on /dev/sdb1, missing codepage or helper program, or other error.
 ```
-~~不過在使用的當下因為沒什麼心情debug，就直接把檔案丟到其他掛載得了的硬。~~ <br>
+~~不過在使用的當下因為沒什麼心情debug，就直接把檔案丟到其他掛載得了的硬碟。~~ <br>
 ~~用完就當作沒事，後來才開始找處理方式。~~
 
 ## 處理方式
@@ -44,6 +44,13 @@ sdb1: volume is dirty and "force" flag is not set!
 看到的時候我也很疑惑，髒的硬碟到底是什麼？<br>
 StackExchange的[這篇文章](https://unix.stackexchange.com/questions/748468/why-is-ntfs-has-a-dirty-mark-and-why-cant-ntfs3-mount-dirty-ntfs-partitions)底下的回答說，這代表這個分區的metadata不一致，如果在讀寫模式使用他，可能會造成資料遺失。<br>
 通常會在windows裡用`chkdsk`來處理，用`ntfsfix`不會處理不一致的問題，只是把髒的標誌刪除。<br>
+
+## 在windows執行chkdsk
+我直接以管理員身份執行cmd，輸入`chkdsk`。<br>
+![](assets/img/image/無法從linux掛載windows硬碟/3.png)<br>
+在階段三發現問題，要輸入`chkdsk -scan`，我在想可能是因為最前面寫到的，沒有指定-F參數，所以正在以唯讀模式執行chkdsk。<br>
+![](assets/img/image/無法從linux掛載windows硬碟/4.png)<br>
+跑完之後，他說沒有找到問題，不需要進一步的動作，所以這樣應該就OK了。
 
 ## 參考文章
 - [Why is NTFS has a dirty mark and why can't NTFS3 mount dirty NTFS partitions?](https://unix.stackexchange.com/questions/748468/why-is-ntfs-has-a-dirty-mark-and-why-cant-ntfs3-mount-dirty-ntfs-partitions)
