@@ -14,7 +14,7 @@ description: 我的linux又有問題了，是啊，到底是為什麼呢
 ```
 wrong fs type, bad option, bad superblock on /dev/sdb1, missing codepage or helper program, or other error.
 ```
-~~不過在使用的當下因為沒什麼心情debug，就直接把檔案丟到其他掛載得了的硬。~~ <br>
+~~不過在使用的當下因為沒什麼心情debug，就直接把檔案丟到其他掛載得了的硬碟。~~ <br>
 ~~用完就當作沒事，後來才開始找處理方式。~~
 
 ## 處理方式
@@ -22,10 +22,16 @@ wrong fs type, bad option, bad superblock on /dev/sdb1, missing codepage or help
 前面提供的方式會把磁碟內容清掉，但我不可能清掉，畢竟他是我的windows耶，所以我參考了其他答案。<br>
 <br>
 1. 首先先用`lsblk`查看硬碟。
+![](assets/img/image/無法從linux掛載windows硬碟/5.png)<br>
+我是以分區的大小來判斷哪個是我的windows硬碟。
 2. 如果看得到那顆硬碟，用`fdisk -l`看看系統有沒有辦法用他。
+![](assets/img/image/無法從linux掛載windows硬碟/6.png)<br>
+在這邊就可以看到最右邊有寫類型，寫著Microsoft，很清楚能知道這是我的windows了。
 3. 再來輸入`fsck /dev/sda1`修理損壞的區域（/dev/sda1改成你自己的硬碟）<br>
 有些人到這邊就結束了，很可惜不是我:( <br>
 我在第三步遇到問題，之後又去查了其他方法。<br>
+
+_是說後來才知道，這是給linux的指令，不知道這樣對NTFS格式的硬碟有沒有用......_
 
 <br>
 於是我來到了reddit的[這篇文章](https://www.reddit.com/r/archlinux/comments/17yc6yw/cant_mount_windows_partition)，裡面的回答帶著我到了[archlinux的維基](https://wiki.archlinuxcn.org/wiki/NTFS#%E6%97%A0%E6%B3%95%E7%94%A8_ntfs3_%E6%8C%82%E8%BD%BD%E8%A2%AB%E6%A0%87%E8%AE%B0%E4%B8%BA%E8%84%8F%E7%9A%84%E5%88%86%E5%8C%BA)<br>
@@ -44,6 +50,13 @@ sdb1: volume is dirty and "force" flag is not set!
 看到的時候我也很疑惑，髒的硬碟到底是什麼？<br>
 StackExchange的[這篇文章](https://unix.stackexchange.com/questions/748468/why-is-ntfs-has-a-dirty-mark-and-why-cant-ntfs3-mount-dirty-ntfs-partitions)底下的回答說，這代表這個分區的metadata不一致，如果在讀寫模式使用他，可能會造成資料遺失。<br>
 通常會在windows裡用`chkdsk`來處理，用`ntfsfix`不會處理不一致的問題，只是把髒的標誌刪除。<br>
+
+## 在windows執行chkdsk
+我直接以管理員身份執行cmd，輸入`chkdsk`。<br>
+![](assets/img/image/無法從linux掛載windows硬碟/3.png)<br>
+在階段三發現問題，要輸入`chkdsk -scan`，我在想可能是因為最前面寫到的，沒有指定-F參數，所以正在以唯讀模式執行chkdsk。<br>
+![](assets/img/image/無法從linux掛載windows硬碟/4.png)<br>
+跑完之後，他說沒有找到問題，不需要進一步的動作，所以這樣應該就OK了。
 
 ## 參考文章
 - [Why is NTFS has a dirty mark and why can't NTFS3 mount dirty NTFS partitions?](https://unix.stackexchange.com/questions/748468/why-is-ntfs-has-a-dirty-mark-and-why-cant-ntfs3-mount-dirty-ntfs-partitions)
