@@ -34,32 +34,24 @@ function insertFrontmatter() {
   };
 }
 
-function build(
-  filename,
-  { src = SRC_DEFAULT, jekyll = false, outputName = null } = {}
-) {
-  const input = `${src}/${filename}.js`;
-
+function build(filename, { src = SRC_DEFAULT, jekyll = false } = {}) {
   return {
-    input,
+    input: `${src}/${filename}.js`,
     output: {
       file: `${DIST}/${filename}.min.js`,
       format: 'iife',
-      ...(outputName !== null && { name: outputName }),
+      name: 'Chirpy',
       banner,
       sourcemap: !isProd && !jekyll
     },
     watch: {
-      include: input
+      include: `${src}/**`
     },
     plugins: [
       babel({
         babelHelpers: 'bundled',
         presets: ['@babel/env'],
-        plugins: [
-          '@babel/plugin-transform-class-properties',
-          '@babel/plugin-transform-private-methods'
-        ]
+        plugins: ['@babel/plugin-transform-class-properties']
       }),
       nodeResolve(),
       isProd && terser(),
@@ -77,7 +69,6 @@ export default [
   build('page'),
   build('post'),
   build('misc'),
-  build('theme', { src: `${SRC_DEFAULT}/modules`, outputName: 'Theme' }),
   build('app', { src: SRC_PWA, jekyll: true }),
   build('sw', { src: SRC_PWA, jekyll: true })
 ];
