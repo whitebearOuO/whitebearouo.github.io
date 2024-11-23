@@ -8,7 +8,6 @@ description: 測試網頁兼指令紀錄
 ---
 
 ## 指令
-testtest
 一直記不起來指令<br>
 [jekyll-chirpy網站](https://chirpy.cotes.page/)
 
