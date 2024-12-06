@@ -125,7 +125,7 @@ sudo pip3 uninstall bauh
 <br>
 搜尋你要的程式，按下install。<br>
 如果要刪除就按uninstall。<br>
-![](assets/img/image/bauh-在linux中管理程式的工具/使用範例1.png)
+![](assets/img/image/bauh-在linux中管理程式的工具/使用範例1.png)<br>
 <br>
 你安裝的程式需要依賴，他也會直接跟你說。<br>
 ![](assets/img/image/bauh-在linux中管理程式的工具/依賴.png)<br>
