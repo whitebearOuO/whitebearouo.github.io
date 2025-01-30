@@ -1,6 +1,10 @@
 ---
 layout: post
-title: 在這個模版上使用giscus留言
+title: 在chirpy使用giscus留言
+date: 2025-01-30 17:58 +0800
+categories: [教學, blog]
+tags: [chirpy, github.io, giscus]
+description: 來加上留言板吧
 ---
 
 ## 前言
@@ -27,6 +31,7 @@ title: 在這個模版上使用giscus留言
 到repo頁面，點setting，在general下面打開。<br>
 ![](/assets/img/image/在這個模版上使用giscus留言/github_setting.png)<br>
 <br>
+把他勾起來之後，按Set up discussions。<br>
 ![](/assets/img/image/在這個模版上使用giscus留言/discussions.png)<br>
 <br>
 按下start discussion就OK了。<br>
