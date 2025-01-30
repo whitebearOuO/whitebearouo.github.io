@@ -41,3 +41,8 @@ title: 在這個模版上使用giscus留言
 ![](/assets/img/image/在這個模版上使用giscus留言/giscus複製貼上.png)
 
 ### 完成
+這樣就可以留言ㄌ。<br>
+![](/assets/img/image/在這個模版上使用giscus留言/留言畫面.png)<br>
+<br>
+會出現在repo的discussion上。<br>
+![](/assets/img/image/在這個模版上使用giscus留言/discussion畫面.png)
