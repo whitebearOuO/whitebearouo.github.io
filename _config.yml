@@ -120,9 +120,9 @@ comments:
   # Giscus options › https://giscus.app
   giscus:
     repo: whitebearOuO/whitebearouo.github.io
-    repo_id: R_kgDOM20AyQ
-    category: General
-    category_id: DIC_kwDOM20Ayc4Ci4I8
+    repo_id: R_kgDONxqIoQ
+    category: Announcements
+    category_id: DIC_kwDONxqIoc4Cmdun
     mapping: # optional, default to 'pathname'
     strict: # optional, default to '0'
     input_position: # optional, default to 'bottom'
