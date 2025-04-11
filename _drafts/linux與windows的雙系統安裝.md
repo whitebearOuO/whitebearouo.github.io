@@ -14,3 +14,5 @@ title: linux與windows的雙系統安裝
 ## 安裝archlinux
 總之你可以先來這一篇[archlinux的安裝](https://whitebearouo.github.io/posts/archlinux%E7%9A%84%E5%AE%89%E8%A3%9D/)，把arch裝好。
 
+## 使用gparted
+安裝gparted，至於如何安裝，需要看各位的linux是哪一個了。<br>
