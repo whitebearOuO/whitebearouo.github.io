@@ -38,6 +38,11 @@ description: ようこそ、archlinuxの世界へ......
 把archinstall調成中文可能會遇到字體缺失，所以建議使用英文。<br>
 基本上照自己的需求選擇，腳本內都寫的滿清楚的。<br>
 <br>
+圖片上寫的字有點小，~~看不到就算ㄌ~~。<br>
+需要注意的下面有再打字提到，所以問題應該不大。<br>
+我這個archinstall的畫面是202409的iso，後來發現202503的iso有改過，可以自己去看看。<br>
+![](/assets/img/image/archlinux的安裝/archinstall選單.jpg)<br>
+<br>
 需要注意的內容：<br>
 1. 安裝桌面
 2. 設定使用者帳號
@@ -61,6 +66,10 @@ description: ようこそ、archlinuxの世界へ......
 
 ---
 
+![](/assets/img/image/archlinux的安裝/確認.jpg)<br>
+<br>
+設定完之後按install，會顯示你剛剛選的配置，確定OK就繼續吧。<br>
+<br>
 如果沒有要幹嘛可以按esc跳過就好。<br>
 ![](/assets/img/image/archlinux的安裝/chroot嗎.jpg)<br>
 <br>
@@ -135,4 +144,6 @@ sudo pacman -S firewalld
 ## 結尾
 大概就是醬。<br>
 啊我是裝雙系統arch+windows，至於如何裝雙系統，又是另一件事了（遠目<br>
-其實你只要留一個空間給window裝進去就好ㄌ。
+其實你只要留一個空間給window裝進去就好ㄌ。<br>
+<br>
+偷偷說我是用gparted在linux切出一個空間就可以裝windows進去了。
