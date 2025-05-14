@@ -8,8 +8,10 @@ title: linux與windows的雙系統安裝
 <br>
 但這次是反過來，先安裝arch，再安裝windows。<br>
 其實滿簡單的，就如同之前在[archlinux的安裝](https://whitebearouo.github.io/posts/archlinux%E7%9A%84%E5%AE%89%E8%A3%9D/)那篇的結尾提到，只要用gparted切一個空間就好。<br>
-這麼說的話
-感覺會有點像gparted的教學耶......
+這麼說的話<br>
+感覺會有點像gparted的教學耶......<br>
+<br>
+總之最大的重點，就是使用[grub](https://wiki.archlinuxcn.org/zh-tw/GRUB)，這樣就可以在按電源鍵後，進入選單選擇你要的系統。
 
 ## 安裝archlinux
 總之你可以先來這一篇[archlinux的安裝](https://whitebearouo.github.io/posts/archlinux%E7%9A%84%E5%AE%89%E8%A3%9D/)，把arch裝好。
@@ -46,7 +48,7 @@ sudo apt-get install gparted
 各位就自行斟酌要給他們多少空間吧，windows的系統會佔據的空間比arch多很多，不過到底是多多我也忘了（<br>
 
 #### 切割
-按下>>就可以開始拉了。<br>
+按下>>|就可以開始拉了。<br>
 ![](/assets/img/image/linux與windows的雙系統安裝/調整大小—移動已選的分割區.jpg)<br>
 <br>
 真的是用拉的，你想用多少就拉多少，好了之後按調整大小。<br>
@@ -73,7 +75,7 @@ GRUB會讓你到GRUB選單，讓你可以選要開哪一個系統，像底下這
 ![](/assets/img/image/linux與windows的雙系統安裝/grub畫面)<br>
 那當然剛弄好的時候，就只會有黑底白字給你看，字還又細又小。<br>
 可以搜尋grub theme，找一個你喜歡的。<br>
-像是我ㄉ[Minecraft畫面](<https://github.com/Lxtharia/minegrub-theme/tree/main>)，每次開機被室友看到，他都以為我要玩電腦。<br>
+像是我ㄉ[Minecraft畫面](https://github.com/Lxtharia/minegrub-theme/tree/main)，每次開機被室友看到，他都以為我要玩電腦。<br>
 <br>
 Windows Boot Manager會讓你一開機就進windows。<br>
 UEFI OS會直接進arch。<br>
@@ -81,3 +83,8 @@ UEFI OS會直接進arch。<br>
 把grub移到第一個就好。
 
 ## 結尾
+我在想有沒有必要把每個步驟都寫得非常詳細，畢竟感覺會想裝雙系統的人應該早就知道怎麼裝系統了，~~而且我有點懶得再重新安裝一次拍照下來~~<br>
+不過我剛剛發現我很久很久以前寫的教學圖片還活著，所以我決定搬運一下他們。<br>
+<br>
+那麼，教學差不多就到此結束了。<br>
+因為這篇文真的拖了好久好久，裡面可能會有一些缺漏，如果有問題或是有其他建議，歡迎在底下留言告訴我。
