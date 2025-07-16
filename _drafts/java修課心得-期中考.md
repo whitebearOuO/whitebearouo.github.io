@@ -1,6 +1,6 @@
 ---
 layout: post
-title: java修課心得-2（期中考）
+title: java修課心得-期中考
 ---
 ## 前言
 上次更新還是上次的事（每次都只會講這種話<br>

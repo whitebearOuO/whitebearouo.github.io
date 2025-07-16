@@ -61,3 +61,8 @@ public static int binarySearch(int[] arr, int target, int left, int right){
 }
 ```
 
+再來需要輸出這個數字在的位置，還有顯示他的位置是奇數位還是偶數位。<br>
+這些問題只需要用print去輸出好看好看的輸出，還有用if去%一下就知道是奇數還是偶數了。
+
+### 第三題
+第三題感覺就是很基本的我不會的java部分，所以我得想辦法想出該怎麼做
